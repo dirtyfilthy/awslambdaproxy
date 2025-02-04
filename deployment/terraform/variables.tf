@@ -1,21 +1,4 @@
-terraform {
-  experiments = [variable_validation]
-}
 
-variable "aws_access_key" {
-  type        = string
-  description = "AWS access key associated with an IAM user or role"
-}
-
-variable "aws_secret_key" {
-  type        = string
-  description = "The secret key associated with the access key. This is essentially the 'password' for the access key."
-}
-
-variable "aws_region" {
-  type        = string
-  description = "AWS Region to send the request to"
-}
 
 variable "name" {
   type        = string

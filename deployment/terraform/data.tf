@@ -16,12 +16,13 @@ data "aws_vpc" "default" {
   default = true
 }
 
-data "aws_subnet_ids" "default" {
-  vpc_id = data.aws_vpc.default.id
-}
+data "aws_subnets" "subnets" {
+  filter {
+    name = "vpc-id"
+    values = [aws_vpc.this[0].id]
+  }
 
-data "aws_subnet" "default" {
-  id = element(tolist(data.aws_subnet_ids.default.ids), 0)
+
 }
 
 data "aws_security_group" "default" {

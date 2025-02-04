@@ -33,8 +33,8 @@ locals {
 
   stop_awslambdaproxy = "docker rm -f ${var.name}"
 
-  default_subnet = element(tolist(data.aws_subnet_ids.default.ids), 0)
-  custom_subnet  = try(aws_subnet.public[0].id, "")
+  default_subnet = "foo"
+  custom_subnet  = try(data.aws_subnets.subnets.ids[0])
 }
 
 resource "random_id" "this" {
