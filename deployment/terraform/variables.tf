@@ -9,7 +9,7 @@ variable "name" {
 variable "create_vpc" {
   type        = bool
   description = "Create personal VPC."
-  default     = false
+  default     = true
 }
 
 variable "vpc_cidr_block" {

@@ -25,6 +25,12 @@ data "aws_subnets" "subnets" {
 
 }
 
+data "aws_subnet" "vpcsubnet" {
+  for_each = toset(data.aws_subnets.subnets.ids)
+
+  id = each.value
+}
+
 data "aws_security_group" "default" {
   vpc_id = data.aws_vpc.default.id
 
